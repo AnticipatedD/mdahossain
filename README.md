@@ -1,1 +1,15 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/0230904f-b59d-4546-88b2-231feff96108/deploy-status)](https://app.netlify.com/projects/mdahossain/deploys)
+mdahossain/
+├── index.html                          [ENTERPRISE PORTFOLIO LANDING]
+├── extensions.html                     [M2M TOKEN ENGINE SHOWCASE]
+├── extensions-core/
+│   ├── m2m-oauth-isolation.html       [OAUTH2 SECURITY BLUEPRINT]
+│   └── voice-orchestrator.html        [REALTIME VOICE PIPELINE]
+├── privacy.html                        [DATA PRIVACY POLICY]
+├── security.html                       [SECURITY POLICY & DISCLOSURE]
+├── terms.html                          [TERMS OF SERVICE]
+├── netlify.toml                        [DEPLOYMENT CONFIG + SECURITY HEADERS]
+├── _redirects                          [HTTP REDIRECT RULES]
+├── robots.txt                          [SEO & BOT MANAGEMENT]
+├── .gitignore                          [REPOSITORY HYGIENE]
+├── package.json                        [BUILD SCRIPTS & DEPENDENCIES]
+└── README.md                           [DEPLOYMENT DOCUMENTATION]
