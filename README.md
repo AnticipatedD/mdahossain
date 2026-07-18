@@ -1,10 +1,8 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/0230904f-b59d-4546-88b2-231feff96108/deploy-status)](https://app.netlify.com/projects/mdahossain/deploys)
-
 # 👋 MD ABUL HOSSAIN | Enterprise Portfolio
 
 **Business | Offshore Architecture Engineer | Entrepreneur | Sovereign AI Architect**
 
-Welcome to [mdahossain.netlify.app](https://mdahossain.netlify.app) - A comprehensive enterprise portfolio showcasing cutting-edge AI systems, cloud architecture, and security engineering expertise.
+Welcome to [MD ABUL HOSSAIN ENTERPRISEPORTFOLIO](https://mdabulhossainn.netlify.app) - A comprehensive enterprise portfolio showcasing cutting-edge AI systems, cloud architecture, and security engineering expertise.
 
 ---
 
