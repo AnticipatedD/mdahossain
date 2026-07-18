@@ -2,7 +2,7 @@
 
 **Business | Offshore Architecture Engineer | Entrepreneur | Sovereign AI Architect**
 
-Welcome to [MD ABUL HOSSAIN ENTERPRISEPORTFOLIO](https://mdabulhossainn.netlify.app) - A comprehensive enterprise portfolio showcasing cutting-edge AI systems, cloud architecture, and security engineering expertise.
+Welcome to [MD ABUL HOSSAIN ENTERPRISE PORTFOLIO](https://mdabulhossainn.netlify.app) - A comprehensive enterprise portfolio showcasing cutting-edge AI systems, cloud architecture, and security engineering expertise.
 
 ---
 
