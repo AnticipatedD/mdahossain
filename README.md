@@ -1,4 +1,4 @@
-# Hi there! 👋 I'm MD ABUL HOSSAIN (my-expert-portfolio)
+# Welcome to MD ABUL HOSSAIN ENTERPRISE PORTFOLIO LANDING PORTAL 
 
 **Business | Offshore Architecture Engineer | Entrepreneur**
 
@@ -97,3 +97,6 @@ As the founder and leader of **Vane Enterprise LLC**, I drive innovation through
 
 ## 🏆 Engineered by Elite Technical Talent
 This framework is architected and maintained by a verified Top-30 Global AI Engineer:
+
+--- 
+*Copyright © 2026 MD ABUL HOSSAIN ENTERPRISE PORTFOLIO LANDING PORTAL. All Rights Reserved.*
