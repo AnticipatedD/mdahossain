@@ -1,0 +1,27 @@
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /extensions.html
+Allow: /privacy.html
+Allow: /security.html
+Allow: /terms.html
+Allow: /*.css
+Allow: /*.js
+
+Disallow: /admin/
+Disallow: /.git/
+Disallow: /.env
+Disallow: /node_modules/
+
+# Search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Crawl delay
+Crawl-delay: 1
+
+# Sitemap
+Sitemap: https://mdahossain.netlify.app/sitemap.xml
