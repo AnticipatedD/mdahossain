@@ -24,4 +24,4 @@ Allow: /
 Crawl-delay: 1
 
 # Sitemap
-Sitemap: https://mdahossain.netlify.app/sitemap.xml
+Sitemap: https://mdabulhossain.netlify.app/sitemap.xml
