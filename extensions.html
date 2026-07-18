@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Enterprise Extensions & Advanced AI Solutions - MD ABUL HOSSAIN">
+    <meta name="keywords" content="enterprise, extensions, oauth, m2m, voice, ai, sovereign">
+    <meta property="og:title" content="Enterprise Extensions - MD ABUL HOSSAIN">
+    <title>Enterprise Extensions | MD ABUL HOSSAIN</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f7fa;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .intro-section {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+        
+        .intro-section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+        
+        .intro-section p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        .extensions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .extension-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .extension-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        
+        .card-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .card-header .icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .card-body {
+            padding: 30px 20px;
+        }
+        
+        .card-body p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        .features-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .features-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .features-list li:before {
+            content: "✓";
+            color: #28a745;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .details-section {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+        
+        .details-section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .details-section p {
+            margin-bottom: 15px;
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        .details-section ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .details-section li {
+            margin-bottom: 10px;
+        }
+        
+        .tech-stack {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+        }
+        
+        .tech-stack h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .tech-stack ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-left: 0;
+        }
+        
+        .tech-stack li {
+            background: white;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #e0e0e0;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .cta-section h2 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            border-bottom: none;
+        }
+        
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 15px 40px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .cta-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .extensions-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-section h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Enterprise Extensions</h1>
+        <p>Advanced AI Solutions & Security Infrastructure</p>
+    </header>
+    
+    <div class="container">
+        <div class="intro-section">
+            <h2>Next-Generation Enterprise Architecture</h2>
+            <p>Vane Enterprise LLC delivers cutting-edge extensions and advanced solutions for mission-critical infrastructure. Our enterprise-grade implementations focus on security, scalability, and sovereignty in AI systems.</p>
+            <p>Explore our specialized modules designed for organizations requiring zero-hallucination AI, secure M2M communication, and real-time voice orchestration.</p>
+        </div>
+        
+        <div class="extensions-grid">
+            <div class="extension-card">
+                <div class="card-header">
+                    <div class="icon">🔐</div>
+                    <h3>M2M OAuth Isolation</h3>
+                </div>
+                <div class="card-body">
+                    <p><strong>Machine-to-Machine Security Architecture</strong></p>
+                    <p>Enterprise-grade OAuth2 framework for secure service-to-service authentication without human intervention.</p>
+                    <ul class="features-list">
+                        <li>Zero-trust OAuth2 implementation</li>
+                        <li>Token isolation & rotation</li>
+                        <li>Cryptographic service bindings</li>
+                        <li>Audit logging & compliance</li>
+                        <li>Multi-region deployment</li>
+                    </ul>
+                    <a href="extensions-core/m2m-oauth-isolation.html" class="btn">View Architecture →</a>
+                </div>
+            </div>
+            
+            <div class="extension-card">
+                <div class="card-header">
+                    <div class="icon">🎙️</div>
+                    <h3>Voice Orchestrator</h3>
+                </div>
+                <div class="card-body">
+                    <p><strong>Real-Time Voice Processing Pipeline</strong></p>
+                    <p>Advanced speech-to-text, voice AI, and multi-modal orchestration for enterprise applications requiring real-time voice interaction.</p>
+                    <ul class="features-list">
+                        <li>Sub-100ms latency processing</li>
+                        <li>Multi-language support</li>
+                        <li>Speaker identification & verification</li>
+                        <li>Real-time transcription & analysis</li>
+                        <li>Encrypted voice channels</li>
+                    </ul>
+                    <a href="extensions-core/voice-orchestrator.html" class="btn">View Architecture →</a>
+                </div>
+            </div>
+            
+            <div class="extension-card">
+                <div class="card-header">
+                    <div class="icon">🧠</div>
+                    <h3>Sovereign RAG Platform</h3>
+                </div>
+                <div class="card-body">
+                    <p><strong>Retrieval-Augmented Generation Framework</strong></p>
+                    <p>Production-ready RAG pipeline eliminating AI hallucinations with deterministic retrieval and confidence scoring.</p>
+                    <ul class="features-list">
+                        <li>Vector embedding & semantic search</li>
+                        <li>Hallucination detection</li>
+                        <li>Multi-source grounding</li>
+                        <li>Confidence evaluation</li>
+                        <li>Full audit trail</li>
+                    </ul>
+                    <a href="https://zenodo.org/records/21303273" target="_blank" class="btn">Zenodo Record →</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details-section">
+            <h2>🏗️ Platform Architecture Overview</h2>
+            <p>The Vane Enterprise Extensions are built on a foundation of:</p>
+            <ul>
+                <li><strong>Zero-Trust Architecture:</strong> Every service, every connection, every request is verified and authenticated</li>
+                <li><strong>Data Sovereignty:</strong> Complete control over data residency and processing geography</li>
+                <li><strong>Encryption-First Design:</strong> All data at rest and in transit encrypted with industry-standard protocols</li>
+                <li><strong>Observability Stack:</strong> Comprehensive logging, tracing, and monitoring for compliance and debugging</li>
+                <li><strong>Scalability-First:</strong> Designed for horizontal scaling across multi-region, multi-cloud deployments</li>
+            </ul>
+            
+            <div class="tech-stack">
+                <h4>Core Technology Stack</h4>
+                <ul>
+                    <li>Python 3.11+</li>
+                    <li>FastAPI</li>
+                    <li>PostgreSQL</li>
+                    <li>Redis/Valkey</li>
+                    <li>Kubernetes</li>
+                    <li>Docker</li>
+                    <li>gRPC</li>
+                    <li>Protocol Buffers</li>
+                    <li>TLS 1.3+</li>
+                    <li>OpenTelemetry</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="cta-section">
+            <h2>Ready to Deploy Enterprise Solutions?</h2>
+            <p>Contact us for custom enterprise implementations, consulting, and integration support.</p>
+            <a href="index.html#contact" class="cta-btn">Get Started Today →</a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2026 MD ABUL HOSSAIN | Vane Enterprise LLC. All rights reserved.</p>
+        <p>
+            <a href="privacy.html">Privacy</a> | 
+            <a href="security.html">Security</a> | 
+            <a href="terms.html">Terms</a> | 
+            <a href="https://github.com/AnticipatedD" target="_blank">GitHub</a>
+        </p>
+    </footer>
+</body>
+</html>

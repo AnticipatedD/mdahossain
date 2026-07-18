@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="M2M OAuth2 Isolation Architecture - Enterprise Security Blueprint">
+    <meta name="keywords" content="oauth2, m2m, security, authentication, enterprise">
+    <title>M2M OAuth2 Isolation | Enterprise Architecture</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f7fa;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        section {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        h3 {
+            color: #764ba2;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        
+        .highlight-box {
+            background: #e7f3ff;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        
+        .flow-diagram {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+            font-family: monospace;
+            line-height: 2;
+            border: 1px solid #e0e0e0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        table th, table td {
+            border: 1px solid #e0e0e0;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        table th {
+            background: #667eea;
+            color: white;
+        }
+        
+        table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        
+        .breadcrumb {
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>M2M OAuth2 Isolation Architecture</h1>
+        <p>Zero-Trust Machine-to-Machine Security Blueprint</p>
+    </header>
+    
+    <div class="breadcrumb">
+        <a href="../index.html">Home</a> / <a href="../extensions.html">Extensions</a> / <span>M2M OAuth2</span>
+    </div>
+    
+    <div class="container">
+        <section>
+            <h2>Overview</h2>
+            <p>The M2M OAuth2 Isolation Architecture is an enterprise-grade framework for secure machine-to-machine (M2M) authentication and authorization. It implements zero-trust principles, ensuring that every service-to-service communication is cryptographically verified and audit-logged.</p>
+            <p>This architecture is suitable for:</p>
+            <ul>
+                <li>Microservices architectures requiring inter-service authentication</li>
+                <li>API gateway and backend service communication</li>
+                <li>Data pipeline orchestration in distributed systems</li>
+                <li>Multi-tenant SaaS platforms with strict isolation requirements</li>
+                <li>Regulated industries (finance, healthcare, government)</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>Core Security Principles</h2>
+            <h3>1. Zero-Trust Model</h3>
+            <p>Every service request must be authenticated and authorized, regardless of network position. No implicit trust.</p>
+            
+            <h3>2. Cryptographic Binding</h3>
+            <p>Services are cryptographically bound to their credentials. Private keys never leave secure storage.</p>
+            
+            <h3>3. Token Isolation</h3>
+            <p>Access tokens are scoped to specific services, operations, and time windows.</p>
+            
+            <h3>4. Continuous Rotation</h3>
+            <p>Credentials are automatically rotated on a configurable schedule, reducing exposure window.</p>
+            
+            <h3>5. Comprehensive Audit Logging</h3>
+            <p>All authentication events are logged immutably for compliance and forensics.</p>
+        </section>
+        
+        <section>
+            <h2>Architecture Components</h2>
+            
+            <h3>1. Identity Server</h3>
+            <p>Centralized OAuth2 token issuer implementing RFC 6749 and RFC 8707 specifications.</p>
+            <pre>Service: identity.internal.company.net
+Protocol: HTTPS + mTLS
+Tokens: JWT (RS256 signed)
+Issuer: https://identity.internal.company.net
+Audience: Scoped per service</pre>
+            
+            <h3>2. Credential Vault</h3>
+            <p>Secure storage for service credentials with encrypted key management.</p>
+            <ul>
+                <li>Hardware security modules (HSM) for master keys</li>
+                <li>Encrypted at-rest storage for service keys</li>
+                <li>Automated key rotation policies</li>
+                <li>Audit logging of all key access</li>
+            </ul>
+            
+            <h3>3. Token Exchange Service</h3>
+            <p>OAuth2-compliant token endpoint implementing client credentials flow.</p>
+            <pre>Endpoint: POST /oauth2/token
+Grant Type: client_credentials
+Auth Method: private_key_jwt (RFC 7523)
+Scope: service-specific (e.g., "api:read api:write")</pre>
+            
+            <h3>4. Resource Servers</h3>
+            <p>Services that accept and validate OAuth2 access tokens from clients.</p>
+            <ul>
+                <li>Token validation at request time</li>
+                <li>Scope verification against requested operations</li>
+                <li>Token expiration checks</li>
+                <li>Request context logging</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>Authentication Flow</h2>
+            
+            <div class="flow-diagram">
+Service A<br>
+   ↓<br>
+[Generate JWT with private key]<br>
+   ↓<br>
+POST /oauth2/token<br>
+   ↓<br>
+[Identity Server validates JWT signature]<br>
+   ↓<br>
+[Checks scope, TTL, revocation status]<br>
+   ↓<br>
+Return signed access token (JWT)<br>
+   ↓<br>
+Service A uses token to call Service B<br>
+   ↓<br>
+[Service B validates token signature]<br>
+   ↓<br>
+[Verifies issuer, audience, expiration]<br>
+   ↓<br>
+✓ Request authorized → Process request<br>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Token Structure</h2>
+            
+            <h3>JWT Claims</h3>
+            <pre>{
+  "iss": "https://identity.internal.company.net",
+  "sub": "service-a",
+  "aud": "service-b",
+  "iat": 1689686400,
+  "exp": 1689690000,
+  "scope": "api:read api:write",
+  "jti": "token-uuid-v4",
+  "tenant_id": "tenant-123",
+  "region": "us-east-1"
+}
+            </pre>
+            
+            <h3>Token Lifetime</h3>
+            <table>
+                <tr>
+                    <th>Token Type</th>
+                    <th>Default TTL</th>
+                    <th>Max TTL</th>
+                </tr>
+                <tr>
+                    <td>Access Token</td>
+                    <td>1 hour</td>
+                    <td>8 hours</td>
+                </tr>
+                <tr>
+                    <td>Refresh Token</td>
+                    <td>7 days</td>
+                    <td>30 days</td>
+                </tr>
+                <tr>
+                    <td>Client Assertion JWT</td>
+                    <td>5 minutes</td>
+                    <td>1 hour</td>
+                </tr>
+            </table>
+        </section>
+        
+        <section>
+            <h2>Implementation Guide</h2>
+            
+            <h3>Step 1: Service Registration</h3>
+            <pre>curl -X POST https://identity.internal.company.net/register \
+  -H "Content-Type: application/json" \
+  -d '{
+    "service_name": "service-a",
+    "public_key": "-----BEGIN PUBLIC KEY-----\n...",
+    "scopes": ["api:read", "api:write"],
+    "ttl": 3600
+  }'
+            </pre>
+            
+            <h3>Step 2: Token Request</h3>
+            <pre>import jwt
+import requests
+
+# Load service private key
+with open('/secure/service-a.key', 'r') as f:
+    private_key = f.read()
+
+# Create JWT assertion
+assertion = jwt.encode(
+    {
+        'iss': 'service-a',
+        'sub': 'service-a',
+        'aud': 'https://identity.internal.company.net/oauth2/token',
+        'iat': int(time.time()),
+        'exp': int(time.time()) + 300
+    },
+    private_key,
+    algorithm='RS256'
+)
+
+# Exchange for access token
+response = requests.post(
+    'https://identity.internal.company.net/oauth2/token',
+    headers={'Content-Type': 'application/x-www-form-urlencoded'},
+    data={
+        'grant_type': 'client_credentials',
+        'client_assertion_type': 'urn:ietf:params:oauth:client-assertion-type:jwt-bearer',
+        'client_assertion': assertion,
+        'scope': 'api:read api:write'
+    }
+)
+
+access_token = response.json()['access_token']
+            </pre>
+            
+            <h3>Step 3: Token Usage</h3>
+            <pre>headers = {
+    'Authorization': f'Bearer {access_token}',
+    'X-Request-ID': str(uuid.uuid4())
+}
+
+response = requests.get(
+    'https://service-b.internal.company.net/api/data',
+    headers=headers
+)
+            </pre>
+        </section>
+        
+        <section>
+            <h2>Security Best Practices</h2>
+            
+            <div class="highlight-box">
+                <h3>✓ Do's</h3>
+                <ul>
+                    <li>Store private keys in encrypted vaults (HashiCorp Vault, AWS Secrets Manager)</li>
+                    <li>Use short-lived access tokens (1-2 hours)</li>
+                    <li>Implement token revocation lists (TRL) for compromised tokens</li>
+                    <li>Monitor failed authentication attempts</li>
+                    <li>Rotate keys regularly (quarterly minimum)</li>
+                    <li>Use mTLS for token endpoint communication</li>
+                    <li>Implement rate limiting on token endpoints</li>
+                </ul>
+                
+                <h3>✗ Don'ts</h3>
+                <ul>
+                    <li>Hardcode credentials in code or config files</li>
+                    <li>Use long-lived tokens</li>
+                    <li>Share credentials between services</li>
+                    <li>Log full tokens or credentials</li>
+                    <li>Transmit tokens over unencrypted channels</li>
+                    <li>Store private keys in version control</li>
+                    <li>Use weak signing algorithms (HS256 for M2M)</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Monitoring & Alerting</h2>
+            
+            <h3>Key Metrics</h3>
+            <ul>
+                <li><strong>Token Request Rate:</strong> Monitor for unusual spikes indicating compromised credentials</li>
+                <li><strong>Token Validation Failures:</strong> Track signature mismatches, expired tokens</li>
+                <li><strong>Scope Violations:</strong> Alert on requests exceeding granted scope</li>
+                <li><strong>Key Rotation Events:</strong> Track and verify all credential rotations</li>
+                <li><strong>Revocation Events:</strong> Monitor token and credential revocation</li>
+            </ul>
+            
+            <h3>Log Events to Capture</h3>
+            <ul>
+                <li>Service registration/deregistration</li>
+                <li>Token issuance (without full token)</li>
+                <li>Token validation success/failure</li>
+                <li>Key rotation events</li>
+                <li>Scope or permission changes</li>
+                <li>Failed authentication attempts</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>Compliance & Standards</h2>
+            <ul>
+                <li>✓ OAuth 2.0 (RFC 6749) - Client Credentials Grant</li>
+                <li>✓ JWT (RFC 7519) - Token Format</li>
+                <li>✓ JWS (RFC 7515) - Token Signing</li>
+                <li>✓ PKIX (RFC 5280) - Certificate Management</li>
+                <li>✓ TLS 1.3 (RFC 8446) - Transport Security</li>
+                <li>✓ OWASP Top 10 - Security Controls</li>
+                <li>✓ NIST Cybersecurity Framework - Implementation practices</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>Contact & Support</h2>
+            <p>For implementation support and enterprise licensing:</p>
+            <p>
+                <strong>Email:</strong> <a href="mailto:hello@mdahossain.netlify.app">hello@mdahossain.netlify.app</a><br>
+                <strong>GitHub:</strong> <a href="https://github.com/AnticipatedD" target="_blank">@AnticipatedD</a><br>
+                <strong>Zenodo:</strong> <a href="https://zenodo.org/records/21342530" target="_blank">VANE-GUARD INTELLIGENCE PLATFORM</a>
+            </p>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2026 MD ABUL HOSSAIN | Vane Enterprise LLC. All rights reserved.</p>
+        <p>
+            <a href="../privacy.html">Privacy</a> | 
+            <a href="../security.html">Security</a> | 
+            <a href="../terms.html">Terms</a>
+        </p>
+    </footer>
+</body>
+</html>
