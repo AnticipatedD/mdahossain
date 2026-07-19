@@ -1,8 +1,11 @@
-# 👋 MD ABUL HOSSAIN | Enterprise Portfolio
+# 👋 Welcome to [MD ABUL HOSSAIN](https://mdahossain.netlify.app) **Enterprise Portfolio** - A comprehensive Enterprise portfolio showcasing cutting-edge AI systems, Cloud Architecture, and Security Engineering Expertise.
 
-**Business | Offshore Architecture Engineer | Entrepreneur | Sovereign AI Architect**
+**Business | Offshore Architecture Engineer | Entrepreneur | Sovereign AI Architect.** 
 
-Welcome to [MD ABUL HOSSAIN ENTERPRISE PORTFOLIO](https://mdabulhossainn.netlify.app) - A comprehensive enterprise portfolio showcasing cutting-edge AI systems, cloud architecture, and security engineering expertise.
+### 📚 Academic Citation & Verified DOI
+This framework is officially registered and archived with the European Union open-access infrastructure: 
+👉 **Official DOI**: <img width="191" height="20" alt="17844696911147125703054503227728" src="https://github.com/user-attachments/assets/59ab9101-b7cd-46c6-8413-43c3253d0812" />
+
 
 ---
 
@@ -11,7 +14,6 @@ Welcome to [MD ABUL HOSSAIN ENTERPRISE PORTFOLIO](https://mdabulhossainn.netlify
 Our enterprise frameworks are officially published and archived in peer-reviewed repositories:
 
 ### 🔬 Zenodo Scientific Contributions
-
 - **[Vane-Guard Sovereign RAG v1.0.0](https://zenodo.org/records/21303273)** - Initial Diagnostic Release
   - Complete Retrieval-Augmented Generation (RAG) pipeline specifications
   - Zero-hallucination AI implementation framework
@@ -22,11 +24,32 @@ Our enterprise frameworks are officially published and archived in peer-reviewed
   - Enterprise-grade system architecture
   - Published: Vane Enterprise LLC | Status: ✓ Published
 
-### 🏆 Professional Credentials
+### 🏆 Professional Credentials 
+<!-- ==================================================================== -->
+<!-- SECURE CERTIFICATIONS & CREDENTIAL ENGINES -->
+<!-- ==================================================================== -->
+<section style="max-width: 800px; margin: 30px auto; padding: 20px; background: #161b22; border: 1px solid #30363d; border-radius: 8px;">
+    <h3 style="color: #c9d1d9; border-bottom: 1px solid #30363d; padding-bottom: 10px; margin-top: 0; font-size: 1.4rem;">
+    </h3>  
+   🛡️ Verified Security & Critical Infrastructure Credentials
 
-<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="44737d16-1d7e-4376-b552-0f2e9ed945c3" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-
-**Verified Badge:** [View on Credly](https://www.credly.com/badges/44737d16-1d7e-4376-b552-0f2e9ed945c3/public_url)
+<table>
+  <tr>
+    <td width="200" align="center" valign="top">
+      <a href="https://credly.com" target="_blank">
+        <img src="My-opswat-introduction-to-critical-infrastructure.png" width="150" alt="OPSWAT ICIP Badge">
+      </a>
+      <br><br>
+      <a href="https://credly.com" target="_blank"><strong>Verify Badge</strong></a>
+    </td>
+    <td valign="top">
+      <h4>OPSWAT Introduction to Critical Infrastructure Protection (ICIP)</h4>
+      <p><strong>Issuing Organization:</strong> OPSWAT • Issued June 2026</p>
+      <p>Validates specialized industrial domain knowledge in securing Operational Technology (OT), Industrial Control Systems (ICS), and critical infrastructural digital assets against modern cyber threats.</p>
+      <p>🔗 <a href="https://credly.com" target="_blank">View Public Credly Verification Link</a></p>
+    </td>
+  </tr>
+</table>
 
 ---
 
