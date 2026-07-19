@@ -37,7 +37,7 @@ Our enterprise frameworks are officially published and archived in peer-reviewed
   <tr>
     <td width="200" align="center" valign="top">
       <a href="https://credly.com" target="_blank">
-        <img src="My-opswat-introduction-to-critical-infrastructure.png" width="150" alt="OPSWAT ICIP Badge">
+        <img src="opswat-intro-to-critical-infrastructure-pro.png" width="150" alt="OPSWAT ICIP Badge">
       </a>
       <br><br>
       <a href="https://credly.com" target="_blank"><strong>Verify Badge</strong></a>
