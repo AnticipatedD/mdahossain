@@ -38,8 +38,9 @@
     /* Metrics Layout */
     .metrics-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
     .metric-card { background: linear-gradient(145deg, var(--surface), #17223b); border: 1px solid var(--border); padding: 1.25rem; border-radius: 8px; text-align: center; }
-    .metric-value { font-size: 2rem; font-weight: 700; color: var(--accent); font-family: monospace; }
+    .metric-value { font-size: 1.75rem; font-weight: 700; color: var(--accent); font-family: monospace; }
     .metric-value.ms-color { color: var(--accent-ms); }
+    .metric-value.success-color { color: var(--accent-success); }
     .metric-label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 0.25rem; }
 
     /* Vendor Toggle Menu */
@@ -87,24 +88,25 @@
   <div class="container">
     <header>
       <div class="meta-badge-group">
-        <span class="badge verified">AlphaNova Rank #46</span>
+        <span class="badge verified">AlphaNova Rank #57 (Finalized)</span>
+        <span class="badge verified">Leaderboard #28</span>
         <span class="badge">ORCID: 0009-0004-4378-5298</span>
-        <span class="badge ms-id">MS ID: 2058ACDDC2B3773F</span>
+        <span class="badge ms-id">EX2026D1473148</span>
       </div>
-      <h1>Md Abul Hossain</h1>
+      <h1>MD ABUL HOSSAIN</h1>
       <div class="title-sub">Lead Architect & Senior Scientific Researcher</div>
-      <p style="color: var(--text-muted); font-size: 1rem; max-width: 700px;">
-        Specializing in multi-cloud system architectures, zero-trust AI orchestration, and regulatory risk mitigation frameworks. Cross-verified engineering footprint spanning IBM ecosystems and Microsoft cloud systems architecture.
+      <p style="color: var(--text-muted); font-size: 1rem; max-width: 750px;">
+        Multi-cloud systems engineer specializing in zero-trust AI orchestration, cross-platform telemetry, and discrete regulatory risk filtering gates. Executing certified cloud footprints across IBM Cloud infrastructure, IMS hierarchical systems, and Azure environments.
       </p>
     </header>
 
     <!-- Overview Metrics Summary -->
     <section>
-      <h2>Architecture & Credentials Overview</h2>
+      <h2>Architecture & Verified Metrics</h2>
       <div class="metrics-container">
         <div class="metric-card">
           <div class="metric-value">66</div>
-          <div class="metric-label">IBM Credentials</div>
+          <div class="metric-label">IBM Tracks Completed</div>
         </div>
         <div class="metric-card">
           <div class="metric-value ms-color">58</div>
@@ -140,7 +142,7 @@
           <button class="filter-btn" onclick="filterLevel('infrastructure', this, 'ibm')">Infrastructure & Virtualization</button>
         </div>
 
-                <div class="registry-wrapper">
+        <div class="registry-wrapper">
           <table class="registry-table">
             <thead>
               <tr>
@@ -169,7 +171,7 @@
                 <td><span class="level-tag intermediate">Intermediate</span></td>
                 <td><span class="status-dot">Active</span></td>
               </tr>
-              <tr class="cred-row ibm-row" data-level="infrastructure">
+               <tr class="cred-row ibm-row" data-level="infrastructure">
                 <td>Kubecost Architecture, Deployment and Access</td>
                 <td><span class="code-span">DLP-SR008773</span></td>
                 <td><span class="level-tag infrastructure">Infrastructure</span></td>
@@ -252,59 +254,3 @@
     <footer>
       <p>&copy; 2026 Md Abul Hossain. Managed via secure Git-integrated infrastructure.</p>
     </footer>
-  </div> <!-- Closes .container -->
-
-  <script>
-    /**
-     * VANE-GUARD ORCHESTRATOR - Front-End Logic
-     * Architecture: Multi-Vendor Telemetry Toggle & Level Filtering
-     * Verified Lead Architect: Mr. Md Abul Hossain
-     */
-
-    function switchVendor(vendor) {
-      document.querySelectorAll('.vendor-panel').forEach(panel => {
-        panel.classList.remove('active');
-      });
-      
-      const tabIbm = document.getElementById('tab-ibm');
-      const tabMs = document.getElementById('tab-ms');
-      if (tabIbm) tabIbm.className = 'vendor-tab';
-      if (tabMs) tabMs.className = 'vendor-tab';
-
-      if (vendor === 'ibm') {
-        const panelIbm = document.getElementById('panel-ibm');
-        if (panelIbm) panelIbm.classList.add('active');
-        if (tabIbm) tabIbm.classList.add('active-ibm');
-      } else if (vendor === 'ms') {
-        const panelMs = document.getElementById('panel-ms');
-        if (panelMs) panelMs.classList.add('active');
-        if (tabMs) tabMs.classList.add('active-ms');
-      }
-    }
-
-    function filterLevel(level, element, prefix) {
-      const parentPanel = document.getElementById(`panel-${prefix}`);
-
-      if (!parentPanel) return;
-
-      parentPanel.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.classList.remove('active', 'ms-theme');
-      });
-      
-      if (prefix === 'ms') {
-        element.classList.add('active', 'ms-theme');
-      } else {
-        element.classList.add('active');
-      }
-
-      parentPanel.querySelectorAll(`.${prefix}-row`).forEach(row => {
-        if (level === 'all' || row.getAttribute('data-level') === level) {
-          row.classList.remove('hidden');
-        } else {
-          row.classList.add('hidden');
-        }
-      });
-    }
-  </script>
-</body>
-</html>
