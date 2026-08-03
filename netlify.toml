@@ -1,0 +1,39 @@
+# ==============================================================================
+# VANE-GUARD METADATA & TRAFFIC ROUTING ENGINE
+# Configuration: Platform Optimization & CORS Policies
+# Verified Lead Architect: Mr. Md Abul Hossain
+# ==============================================================================
+
+# Global Configuration Overrides
+[build]
+  publish = "."
+
+# Global Security Headers & Cross-Origin Resource Sharing (CORS)
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type, Authorization"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+
+# Localization & Multi-Region Forwarding Configuration
+[[redirects]]
+  from = "/de/*"
+  to = "/index.html"
+  status = 200
+  query = {lang = "de"}
+
+[[redirects]]
+  from = "/fr/*"
+  to = "/index.html"
+  status = 200
+  query = {lang = "fr"}
+
+# System Fallback Routing Logic
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
