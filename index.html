@@ -1,231 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Md Abul Hossain | Enterprise Architect & Senior Researcher</title>
-  <style>
-    :root {
-      --bg: #0b0f19;
-      --surface: #131a2c;
-      --surface-light: #1e2942;
-      --border: #1e2942;
-      --text: #f3f4f6;
-      --text-muted: #9ca3af;
-      --accent: #3b82f6;
-      --accent-ms: #00a4ef;
-      --accent-success: #10b981;
-      --font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: var(--bg); color: var(--text); font-family: var(--font); line-height: 1.5; padding: 2rem 1rem; }
-    
-    .container { max-width: 900px; margin: 0 auto; }
-    header { margin-bottom: 3rem; }
-    
-    .meta-badge-group { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
-    .badge { background: var(--surface); border: 1px solid var(--border); color: var(--text-muted); padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem; font-family: monospace; }
-    .badge.verified { border-color: var(--accent-success); color: var(--accent-success); }
-    .badge.ms-id { border-color: rgba(0, 164, 239, 0.4); color: var(--accent-ms); }
-    
-    h1 { font-size: 2.25rem; font-weight: 700; letter-spacing: -0.025em; margin-bottom: 0.5rem; }
-    .title-sub { color: var(--accent); font-size: 1.1rem; font-weight: 500; margin-bottom: 1.5rem; }
-    
-    section { margin-bottom: 3rem; }
-    h2 { font-size: 1.25rem; font-weight: 600; margin-bottom: 1.25rem; padding-bottom: 0.25rem; border-bottom: 1px solid var(--border); color: var(--text); }
-    
-    /* Metrics Layout */
-    .metrics-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
-    .metric-card { background: linear-gradient(145deg, var(--surface), #17223b); border: 1px solid var(--border); padding: 1.25rem; border-radius: 8px; text-align: center; }
-    .metric-value { font-size: 1.75rem; font-weight: 700; color: var(--accent); font-family: monospace; }
-    .metric-value.ms-color { color: var(--accent-ms); }
-    .metric-value.success-color { color: var(--accent-success); }
-    .metric-label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 0.25rem; }
-
-    /* Vendor Toggle Menu */
-    .vendor-nav { display: flex; gap: 0.5rem; border-bottom: 2px solid var(--border); margin-bottom: 1.5rem; padding-bottom: 0.5rem; }
-    .vendor-tab { background: none; border: none; color: var(--text-muted); font-size: 1rem; font-weight: 600; padding: 0.5rem 1rem; cursor: pointer; transition: all 0.2s ease; border-radius: 4px; }
-    .vendor-tab:hover { color: var(--text); background: rgba(255, 255, 255, 0.03); }
-    .vendor-tab.active-ibm { color: var(--accent); background: rgba(59, 130, 246, 0.1); }
-    .vendor-tab.active-ms { color: var(--accent-ms); background: rgba(0, 164, 239, 0.1); }
-
-    /* Interactive Filter Controls */
-    .filter-menu { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
-    .filter-btn { background: var(--surface); border: 1px solid var(--border); color: var(--text-muted); padding: 0.4rem 1rem; border-radius: 6px; font-size: 0.85rem; cursor: pointer; transition: all 0.2s ease; }
-    .filter-btn:hover { border-color: var(--accent); color: var(--text); }
-    .filter-btn.active { background: var(--accent); border-color: var(--accent); color: #ffffff; }
-    .filter-btn.active.ms-theme { background: var(--accent-ms); border-color: var(--accent-ms); }
-
-    /* Registry Tables */
-    .vendor-panel { display: none; }
-    .vendor-panel.active { display: block; }
-    .registry-wrapper { border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: var(--surface); margin-bottom: 1.5rem; }
-    .registry-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; }
-    .registry-table th { background: #0d1524; padding: 0.75rem 1rem; color: var(--text-muted); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid var(--border); }
-    .registry-table td { padding: 0.85rem 1rem; border-bottom: 1px solid #162035; vertical-align: middle; }
-    .registry-table tr:last-child td { border-bottom: none; }
-    .registry-table tr.hidden { display: none; }
-    
-    .level-tag { display: inline-block; font-family: monospace; font-size: 0.75rem; padding: 0.15rem 0.5rem; border-radius: 4px; font-weight: 500; }
-    .level-tag.advanced { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
-    .level-tag.intermediate { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
-    .level-tag.infrastructure { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
-    .level-tag.microsoft { background: rgba(0, 164, 239, 0.15); color: #60a5fa; border: 1px solid rgba(0, 164, 239, 0.3); }
-    
-    .code-span { font-family: monospace; color: var(--text-muted); font-size: 0.8rem; }
-    .status-dot { display: inline-flex; align-items: center; gap: 0.35rem; color: var(--accent-success); font-size: 0.8rem; font-family: monospace; }
-    .status-dot::before { content: ""; display: inline-block; width: 6px; height: 6px; background: var(--accent-success); border-radius: 50%; }
-
-    .repo-structure { background: #070a12; border: 1px solid var(--border); padding: 1rem; border-radius: 6px; font-family: monospace; font-size: 0.85rem; color: #a7b5ca; overflow-x: auto; }
-    .repo-file { color: #38bdf8; }
-
-    footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--border); text-align: center; color: var(--text-muted); font-size: 0.85rem; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md Abul Hossain | Enterprise Architect & Senior Researcher</title>
+    <!-- Sharp, authentic enterprise tech typography matrices -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="animation.script.js" defer></script>
 </head>
 <body>
 
-  <div class="container">
-    <header>
-      <div class="meta-badge-group">
-        <span class="badge verified">AlphaNova Rank #57 (Finalized)</span>
-        <span class="badge verified">Leaderboard #28</span>
-        <span class="badge">ORCID: 0009-0004-4378-5298</span>
-        <span class="badge ms-id">EX2026D1473148</span>
-      </div>
-      <h1>MD ABUL HOSSAIN</h1>
-      <div class="title-sub">Lead Architect & Senior Scientific Researcher</div>
-      <p style="color: var(--text-muted); font-size: 1rem; max-width: 750px;">
-        Multi-cloud systems engineer specializing in zero-trust AI orchestration, cross-platform telemetry, and discrete regulatory risk filtering gates. Executing certified cloud footprints across IBM Cloud infrastructure, IMS hierarchical systems, and Azure environments.
-      </p>
+    <!-- Upper Telemetry Bar -->
+    <header class="telemetry-bar">
+        <div class="system-status">
+            <span class="pulse-indicator"></span>
+            <span class="mono">NODE // IBM_PARTNER_PLUS_ECOSYSTEM</span>
+        </div>
+        <div class="account-token mono">ACC_ID: 20260728-1631-1400-910f-81a2e05d2683</div>
     </header>
 
-    <!-- Overview Metrics Summary -->
-    <section>
-      <h2>Architecture & Verified Metrics</h2>
-      <div class="metrics-container">
-        <div class="metric-card">
-          <div class="metric-value">66</div>
-          <div class="metric-label">IBM Tracks Completed</div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-value ms-color">58</div>
-          <div class="metric-label">MS Learn Badges</div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-value ms-color">10</div>
-          <div class="metric-label">MS Trophies</div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-value">Lv. 9</div>
-          <div class="metric-label">MS Learn Tier</div>
-        </div>
-      </div>
-    </section>
+    <div class="app-container">
+        <!-- Sidebar Navigation Dashboard -->
+        <aside class="sidebar">
+            <div class="profile-block">
+                <h1>MD ABUL HOSSAIN</h1>
+                <p class="subtitle">Systems Architect & AI Governance Lead</p>
+                
+                <div class="meta-badge-stack">
+                    <span class="meta-tag tag-gold">AlphaNova Finalist #57</span>
+                    <span class="meta-tag tag-blue">ORCID: 0009-0004-4378-5298</span>
+                    <span class="meta-tag tag-purple">MS_ID: EX2026D1473148</span>
+                </div>
+            </div>
+            
+            <nav class="nav-menu">
+                <button class="nav-item active" data-target="overview">
+                    <span class="nav-icon">📊</span> Overview Console
+                </button>
+                <button class="nav-item" data-target="registries">
+                    <span class="nav-icon">🛡️</span> Engineering Registries
+                </button>
+                <button class="nav-item" data-target="architecture">
+                    <span class="nav-icon">⚡</span> Applied Infrastructure
+                </button>
+                <button class="nav-item" data-target="compliance">
+                    <span class="nav-icon">⚖️</span> Governance & Compliance
+                </button>
+            </nav>
 
-    <!-- Interactive Multi-Cloud Credentials Registry -->
-    <section>
-      <h2>Verified Engineering Registries</h2>
-      
-      <!-- Vendor Tab Navigation -->
-      <div class="vendor-nav">
-        <button id="tab-ibm" class="vendor-tab active-ibm" onclick="switchVendor('ibm')">IBM Ecosystems (66)</button>
-        <button id="tab-ms" class="vendor-tab" onclick="switchVendor('ms')">Microsoft Learn (58)</button>
-      </div>
+            <div class="sidebar-footer mono">
+                BPA: FISBIVD03SE (TARU Finland)
+            </div>
+        </aside>
 
-      <!-- IBM PANEL -->
-      <div id="panel-ibm" class="vendor-panel active">
-        <div class="filter-menu">
-          <button class="filter-btn active" onclick="filterLevel('all', this, 'ibm')">All IBM Tracks</button>
-          <button class="filter-btn" onclick="filterLevel('advanced', this, 'ibm')">Advanced / L3-L4</button>
-          <button class="filter-btn" onclick="filterLevel('intermediate', this, 'ibm')">Intermediate / L2</button>
-          <button class="filter-btn" onclick="filterLevel('infrastructure', this, 'ibm')">Infrastructure & Virtualization</button>
-        </div>
+        <!-- Dynamic Main Stage Workspace Window -->
+        <main class="content-window">
+            
+            <!-- OVERVIEW PANEL VIEW -->
+            <section id="overview" class="view-panel active">
+                <div class="view-header">
+                    <h2>Architecture & Verified Metrics</h2>
+                    <p>Production-grade deployment baselines and multi-cloud cross-platform tracking.</p>
+                </div>
+                
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-val">66</div>
+                        <div class="metric-lbl">IBM Tracks Completed</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-val text-ms">58</div>
+                        <div class="metric-lbl">MS Learn Badges</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-val text-ms">10</div>
+                        <div class="metric-lbl">MS Trophies</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-val text-green">Lv. 9</div>
+                        <div class="metric-lbl">MS Learn Tier</div>
+                    </div>
+                </div>
+            </section>
 
-        <div class="registry-wrapper">
-          <table class="registry-table">
-            <thead>
-              <tr>
-                <th>Course Title</th>
-                <th>Code</th>
-                <th>Classification</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="cred-row ibm-row" data-level="advanced">
-                <td>watsonx.governance Level 3</td>
-                <td><span class="code-span">DLP-QR008091</span></td>
-                <td><span class="level-tag advanced">Advanced</span></td>
-                <td><span class="status-dot">Active</span></td>
-              </tr>
-              <tr class="cred-row ibm-row" data-level="advanced">
-                <td>Envizi L4 Sustainability Administration</td>
-                <td><span class="code-span">DLP-ENV4001</span></td>
-                <td><span class="level-tag advanced">Advanced</span></td>
-                <td><span class="status-dot">Active</span></td>
-              </tr>
-              <tr class="cred-row ibm-row" data-level="intermediate">
-                <td>IBM OpenPages Technical Sales Intermediate</td>
-                <td><span class="code-span">DLP-GRC0021</span></td>
-                <td><span class="level-tag intermediate">Intermediate</span></td>
-                <td><span class="status-dot">Active</span></td>
-              </tr>
-               <tr class="cred-row ibm-row" data-level="infrastructure">
-                <td>Kubecost Architecture, Deployment and Access</td>
-                <td><span class="code-span">DLP-SR008773</span></td>
-                <td><span class="level-tag infrastructure">Infrastructure</span></td>
-                <td><span class="status-dot">Active</span></td>
-              </tr>
-              <tr class="cred-row ibm-row" data-level="infrastructure">
-                <td>Automation [Vmware L4 Architecture]</td>
-                <td><span class="code-span">DLP-SR008696</span></td>
-                <td><span class="level-tag infrastructure">Infrastructure</span></td>
-                <td><span class="status-dot">Active</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div> <!-- Closes .registry-wrapper -->
-      </div> <!-- Closes #panel-ibm -->
+            <!-- EXTENDED INTERACTIVE REGISTRIES PANEL VIEW -->
+            <section id="registries" class="view-panel">
+                <div class="view-header">
+                    <h2>Verified Engineering Registries</h2>
+                    <p>Audited deployment records across active cloud fabrics and regulatory matrices.</p>
+                </div>
 
-      <!-- MICROSOFT PANEL (Restored Structure) -->
-      <div id="panel-ms" class="vendor-panel">
-        <div class="filter-menu">
-          <button class="filter-btn active ms-theme" onclick="filterLevel('all', this, 'ms')">All Microsoft Tracks</button>
-          <button class="filter-btn" onclick="filterLevel('badge', this, 'ms')">Badges (58)</button>
-          <button class="filter-btn" onclick="filterLevel('trophy', this, 'ms')">Trophies (10)</button>
-        </div>
+                <!-- Global Search Matrix -->
+                <div class="search-container">
+                    <input type="text" id="registry-search" placeholder="Filter tracks by keyword, code, or subsystem profile..." autocomplete="off">
+                </div>
 
-        <div class="registry-wrapper">
-          <table class="registry-table">
-            <thead>
-              <tr>
-                <th>Module / Achievement Scope</th>
-                <th>Verification Type</th>
-                <th>Ecosystem Badge</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="cred-row ms-row" data-level="badge">
-                <td>Azure Cloud Architecture Fundamentals Integration</td>
-                <td><span class="code-span">MS-Badge-Verified</span></td>
-                <td><span class="level-tag microsoft">Badge</span></td>
-                <td><span class="status-dot">Active</span></td>
-              </tr>
-              <tr class="cred-row ms-row" data-level="trophy">
-                <td>Advanced Cloud Solutions Deployment Milestone</td>
-                <td><span class="code-span">MS-Trophy-Verified</span></td>
-                <td><span class="level-tag advanced">Trophy</span></td>
-                <td><span class="status-dot">Active</span></td>
-              </tr>
-              <tr class="cred-row ms-row" data-level="badge">
-                <td>Identity and Access Management Solutions (IAM)</td>
-                <td><span class="code-span">MS-Badge-Verified</span></td>
-                <td><span class="level-tag microsoft">Badge</span></td>
-                <td><span class="status-dot">Active</span></td>
-              </tr>
-              <tr class="cred-row ms-row" data-level="trophy">
+                <!-- Ecosystem Navigation Menu -->
+                <div class="vendor-nav">
+                    <button class="vendor-tab active" data-vendor="ibm">IBM Ecosystems (66)</button>
+                    <button class="vendor-tab" data-vendor="ms">Microsoft Learn (58)</button>
+                </div>
+
+                <!-- Filtering Chips Stage -->
+                <div class="filter-menu">
+                    <button class="filter-btn active" data-filter="all">All Tracks</button>
+                    <button class="filter-btn" data-filter="advanced">Advanced / L3-L4</button>
+                    <button class="filter-btn" data-filter="intermediate">Intermediate / L2</button>
+                    <button class="filter-btn" data-filter="infrastructure">Infrastructure & Frameworks</button>
+                    <!-- Special Micro-filters matching your precise mapping hooks -->
+                    <button class="filter-btn d-none" data-filter="badge">Badges</button>
+                    <button class="filter-btn d-none" data-filter="trophy">Trophies</button>
+                </div>
+
+                <!-- Consolidated Registry Data Matrix -->
+                <div class="registry-wrapper">
+                    <table class="registry-table">
+                        <thead>
+                            <tr id="table-headers-tracker">
+                                <th>Course Title / Track Profile</th>
+                                <th>System Code</th>
+                                <th>Classification</th>
+                                <th>Telemetry Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="registry-data-body">
+                            <!-- IBM Track Nodes -->
+                            <tr class="cred-row" data-vendor="ibm" data-level="advanced">
+                                <td>watsonx.governance Level 3</td>
+                                <td><span class="code-span">DLP-QR008091</span></td>
+                                <td><span class="level-tag advanced">Advanced</span></td>
+                                <td><span class="status-dot">Active</span></td>
+                            </tr>
+                            <tr class="cred-row" data-vendor="ibm" data-level="advanced">
+                                <td>Envizi L4 Sustainability Administration</td>
+                                <td><span class="code-span">DLP-ENV4001</span></td>
+                                <td><span class="level-tag advanced">Advanced</span></td>
+                                <td><span class="status-dot">Active</span></td>
+                            </tr>
+                            <tr class="cred-row" data-vendor="ibm" data-level="intermediate">
+                                <td>IBM OpenPages Technical Sales Intermediate</td>
+                                <td><span class="code-span">DLP-GRC0021</span></td>
+                                <td><span class="level-tag intermediate">Intermediate</span></td>
+                                <td><span class="status-dot">Active</span></td>
+                            </tr>
+                            <tr class="cred-row" data-vendor="ibm" data-level="infrastructure">
+                                <td>Kubecost Architecture, Deployment and Access</td>
+                                <td><span class="code-span">DLP-SR008773</span></td>
+                                <td><span class="level-tag infrastructure">Infrastructure</span></td>
+                                <td><span class="status-dot">Active</span></td>
+                            </tr>
+                            <tr class="cred-row" data-vendor="ibm" data-level="infrastructure">
+                                <td>Automation [Vmware L4 Architecture]</td>
+                                <td><span class="code-span">DLP-SR008696</span></td>
+                                <td><span class="level-tag infrastructure">Infrastructure</span></td>
+                                <td><span class="status-dot">Active</span></td>
+                            </tr>
+
+                            <!-- Microsoft Track Nodes (Dynamically Swapped via Framework engine) -->
+                            <tr class="cred-row d-none" data-vendor="ms" data-level="badge">
+                                <td>Azure Cloud Architecture Fundamentals Integration</td>
+                                <td><span class="code-span">MS-Badge-Verified</span></td>
+                                <td><span class="level-tag microsoft">Badge</span></td>
+                                <td><span class="status-dot">Active</span></td>
+                            </tr>
+                            <tr class="cred-row d-none" data-vendor="ms" data-level="trophy">
+                                <td>Advanced Cloud Solutions Deployment Milestone</td>
+                                <td><span class="code-span">MS-Trophy-Verified</span></td>
+                                <td><span class="level-tag advanced">Trophy</span></td>
+                                <td><span class="status-dot">Active</span></td>
+                            </tr>
+                            <tr class="cred-row d-none" data-vendor="ms" data-level="badge">
+                                <td>Identity and Access Management Solutions (IAM)</td>
+                                <td><span class="code-span">MS-Badge-Verified</span></td>
+                                <td><span class="level-tag microsoft">Badge</span></td>
+                              
                 <td>Solutions Architect Mastery Solution Sprint</td>
                 <td><span class="code-span">MS-Trophy-Verified</span></td>
                 <td><span class="level-tag advanced">Trophy</span></td>
@@ -254,3 +203,101 @@
     <footer>
       <p>&copy; 2026 Md Abul Hossain. Managed via secure Git-integrated infrastructure.</p>
     </footer>
+---
+
+### ⚙️ Engine Layer (`animation.script.js`) Update
+To support your split tracking filters (All, Advanced, Intermediate, Infrastructure for **IBM** vs. All, Badges, Trophies for **Microsoft**), update your `animation.script.js` with this logical handler:
+
+```javascript
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Sidebar Panel Router
+    const navItems = document.querySelectorAll('.nav-item');
+    const viewPanels = document.querySelectorAll('.view-panel');
+
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            navItems.forEach(nav => nav.classList.remove('active'));
+            viewPanels.forEach(panel => panel.classList.remove('active'));
+
+            item.classList.add('active');
+            const targetId = item.getAttribute('data-target');
+            const targetPanel = document.getElementById(targetId);
+            if (targetPanel) targetPanel.classList.add('active');
+        });
+    });
+
+    // 2. Dynamic Matrix Control System
+    const vendorTabs = document.querySelectorAll('.vendor-tab');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const searchInput = document.getElementById('registry-search');
+    const rows = document.querySelectorAll('.cred-row');
+    const tableHeaders = document.getElementById('table-headers-tracker');
+
+    let currentVendor = 'ibm';
+    let currentFilter = 'all';
+
+    function evaluateRegistryMatrix() {
+        const query = searchInput.value.toLowerCase().trim();
+
+        rows.forEach(row => {
+            const matchesVendor = row.getAttribute('data-vendor') === currentVendor;
+            const matchesFilter = (currentFilter === 'all' || row.getAttribute('data-level') === currentFilter);
+            const matchesSearch = row.innerText.toLowerCase().includes(query);
+
+            if (matchesVendor && matchesFilter && matchesSearch) {
+                row.classList.remove('d-none');
+            } else {
+                row.classList.add('d-none');
+            }
+        });
+    }
+
+    // Toggle chip visibility states based on chosen ecosystem node
+    function adaptiveFilterMenu(vendor) {
+        currentFilter = 'all';
+        filterBtns.forEach(btn => btn.classList.remove('active'));
+        filterBtns[0].classList.add('active'); // Re-home index to 'All'
+
+        if (vendor === 'ibm') {
+            tableHeaders.innerHTML = `<th>Course Title / Track Profile</th><th>System Code</th><th>Classification</th><th>Telemetry Status</th>`;
+            filterBtns.forEach(btn => {
+                const targetType = btn.getAttribute('data-filter');
+                if (['badge', 'trophy'].includes(targetType)) btn.classList.add('d-none');
+                else btn.classList.remove('d-none');
+            });
+        } else {
+            tableHeaders.innerHTML = `<th>Module / Achievement Scope</th><th>Verification Type</th><th>Ecosystem Badge</th><th>Status</th>`;
+            filterBtns.forEach(btn => {
+                const targetType = btn.getAttribute('data-filter');
+                if (['advanced', 'intermediate', 'infrastructure'].includes(targetType)) btn.classList.add('d-none');
+                else btn.classList.remove('d-none');
+            });
+        }
+    }
+
+    vendorTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            vendorTabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            currentVendor = tab.getAttribute('data-vendor');
+            adaptiveFilterMenu(currentVendor);
+            evaluateRegistryMatrix();
+        });
+    });
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentFilter = btn.getAttribute('data-filter');
+            evaluateRegistryMatrix();
+        });
+    });
+
+    if (searchInput) {
+        searchInput.addEventListener('input', evaluateRegistryMatrix);
+    }
+    
+    // Initial configuration sync
+    adaptiveFilterMenu('ibm');
+});
