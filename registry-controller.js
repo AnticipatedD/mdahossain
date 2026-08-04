@@ -1,4 +1,3 @@
-<script>
 /**
  * VANE-GUARD-ORCHESTRATOR - Front-End Logic
  * Architecture: Multi-Vendor Telemetry Toggle & Level Filtering
@@ -54,6 +53,5 @@ function filterLevel(level, element, prefix) {
       row.classList.add('hidden');
     }
   });
-}
-</script>
+} 
 
