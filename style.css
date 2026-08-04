@@ -1,4 +1,5 @@
 :root {
+    /* Enterprise Platform Themes */
     --bg-main: #0f1115;
     --bg-surface: #161920;
     --bg-element: #1f242e;
@@ -7,7 +8,7 @@
     --text-muted: #8a99ad;
     --accent: #0f62fe; /* IBM Corporate Blue */
     --accent-success: #24a148;
-    --font-sans: 'IBM Plex Sans', sans-serif;
+    --font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     --font-mono: 'IBM Plex Mono', monospace;
 }
 
@@ -160,7 +161,18 @@ body {
     color: var(--text-muted);
 }
 
-/* UI Component Cards */
+/* UI Component Cards & Badge Badges */
+.badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 2px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.status-green { background: rgba(36, 161, 72, 0.15); color: #42be65; }
+.status-blue { background: rgba(15, 98, 254, 0.15); color: #78a9ff; }
+.status-purple { background: rgba(162, 28, 175, 0.15); color: #e879f9; }
+
 .metrics-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -188,7 +200,7 @@ body {
     letter-spacing: 0.5px;
 }
 
-/* Credential Lists */
+/* Credential Data Stacks */
 .card-stack {
     display: flex;
     flex-direction: column;
@@ -204,17 +216,6 @@ body {
     gap: 1.5rem;
     border-radius: 4px;
 }
-
-.badge {
-    font-size: 0.75rem;
-    padding: 0.25rem 0.5rem;
-    border-radius: 2px;
-    font-weight: 600;
-    text-transform: uppercase;
-}
-.status-green { background: rgba(36, 161, 72, 0.15); color: #42be65; }
-.status-blue { background: rgba(15, 98, 254, 0.15); color: #78a9ff; }
-.status-purple { background: rgba(162, 28, 175, 0.15); color: #e879f9; }
 
 .data-row .title { flex: 1; color: var(--text-primary); }
 .data-row .meta { color: var(--text-muted); }
@@ -246,4 +247,3 @@ body {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
-
