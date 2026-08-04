@@ -8,8 +8,8 @@
     <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="animation.script.js" defer></script>
+    <script src="registry-controller.js" defer></script>
 </head>
-<body>
 
     <!-- Upper Telemetry Bar -->
     <header class="telemetry-bar">
@@ -202,102 +202,5 @@
 
     <footer>
       <p>&copy; 2026 Md Abul Hossain. Managed via secure Git-integrated infrastructure.</p>
-    </footer>
----
-
-### ⚙️ Engine Layer (`animation.script.js`) Update
-To support your split tracking filters (All, Advanced, Intermediate, Infrastructure for **IBM** vs. All, Badges, Trophies for **Microsoft**), update your `animation.script.js` with this logical handler:
-
-```javascript
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. Sidebar Panel Router
-    const navItems = document.querySelectorAll('.nav-item');
-    const viewPanels = document.querySelectorAll('.view-panel');
-
-    navItems.forEach(item => {
-        item.addEventListener('click', () => {
-            navItems.forEach(nav => nav.classList.remove('active'));
-            viewPanels.forEach(panel => panel.classList.remove('active'));
-
-            item.classList.add('active');
-            const targetId = item.getAttribute('data-target');
-            const targetPanel = document.getElementById(targetId);
-            if (targetPanel) targetPanel.classList.add('active');
-        });
-    });
-
-    // 2. Dynamic Matrix Control System
-    const vendorTabs = document.querySelectorAll('.vendor-tab');
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const searchInput = document.getElementById('registry-search');
-    const rows = document.querySelectorAll('.cred-row');
-    const tableHeaders = document.getElementById('table-headers-tracker');
-
-    let currentVendor = 'ibm';
-    let currentFilter = 'all';
-
-    function evaluateRegistryMatrix() {
-        const query = searchInput.value.toLowerCase().trim();
-
-        rows.forEach(row => {
-            const matchesVendor = row.getAttribute('data-vendor') === currentVendor;
-            const matchesFilter = (currentFilter === 'all' || row.getAttribute('data-level') === currentFilter);
-            const matchesSearch = row.innerText.toLowerCase().includes(query);
-
-            if (matchesVendor && matchesFilter && matchesSearch) {
-                row.classList.remove('d-none');
-            } else {
-                row.classList.add('d-none');
-            }
-        });
-    }
-
-    // Toggle chip visibility states based on chosen ecosystem node
-    function adaptiveFilterMenu(vendor) {
-        currentFilter = 'all';
-        filterBtns.forEach(btn => btn.classList.remove('active'));
-        filterBtns[0].classList.add('active'); // Re-home index to 'All'
-
-        if (vendor === 'ibm') {
-            tableHeaders.innerHTML = `<th>Course Title / Track Profile</th><th>System Code</th><th>Classification</th><th>Telemetry Status</th>`;
-            filterBtns.forEach(btn => {
-                const targetType = btn.getAttribute('data-filter');
-                if (['badge', 'trophy'].includes(targetType)) btn.classList.add('d-none');
-                else btn.classList.remove('d-none');
-            });
-        } else {
-            tableHeaders.innerHTML = `<th>Module / Achievement Scope</th><th>Verification Type</th><th>Ecosystem Badge</th><th>Status</th>`;
-            filterBtns.forEach(btn => {
-                const targetType = btn.getAttribute('data-filter');
-                if (['advanced', 'intermediate', 'infrastructure'].includes(targetType)) btn.classList.add('d-none');
-                else btn.classList.remove('d-none');
-            });
-        }
-    }
-
-    vendorTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            vendorTabs.forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
-            currentVendor = tab.getAttribute('data-vendor');
-            adaptiveFilterMenu(currentVendor);
-            evaluateRegistryMatrix();
-        });
-    });
-
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            currentFilter = btn.getAttribute('data-filter');
-            evaluateRegistryMatrix();
-        });
-    });
-
-    if (searchInput) {
-        searchInput.addEventListener('input', evaluateRegistryMatrix);
-    }
-    
-    // Initial configuration sync
-    adaptiveFilterMenu('ibm');
-});
+    </footer> 
+<html>            
