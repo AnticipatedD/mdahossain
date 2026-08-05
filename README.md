@@ -1,6 +1,7 @@
-# 👋 Welcome to [MD ABUL HOSSAIN](https://6a59e88cfd523005f2c3ed16--mdahossain.netlify.app) **Enterprise Portfolio** - A comprehensive Enterprise portfolio showcasing cutting-edge AI systems, Cloud Architecture, and Security Engineering Expertise.
+# Hello Everyone Welcome to [MD ABUL HOSSAIN](https://6a59e88cfd523005f2c3ed16--mdahossain.netlify.app) **Enterprise Portfolio** - A comprehensive Enterprise portfolio showcasing cutting-edge AI systems, Cloud Architecture, and Security Engineering Expertise.
 
-**Business | Offshore Architecture Engineer | Entrepreneur | Sovereign AI Architect.** 
+**SVP & Head of Strategic Partnerships 
+TARU Global Access |EUROPEAN F&T Expert: EX2026D1473148 | IBM Business Partner Plus | Web of Science ResearcherID: QQZ-6739-2026 | ORCID iD: 0009-0004-4378-5298| Offshore Architecture Engineer | Business Entrepreneur | Sovereign AI Architect.** 
 
 ### 📚 Academic Citation & Verified DOI
 This framework is officially registered and archived with the European Union open-access infrastructure: 
